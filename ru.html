@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<!-- Last Published: Tue Jul 26 2022 06:33:01 GMT+0000 (Coordinated Universal Time) -->
+<html data-wf-domain="www.routerprotocol.com" data-wf-page="61d9995a59033f5d7fc66aec" data-wf-site="61d1382fe0e915f2953f9500">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Router Protocol | Communicate between blockchain networks</title>
+    <meta content="Router Protocol is a Cross Chain Bridge. Currently live on Ethereum, Polygon, and more. Building an interoperable cross chain future of the blockchain ecosystem." name="description" />
+    <meta content="Router Protocol | Communicate between blockchain networks" property="og:title" />
+    <meta content="Router Protocol is a Cross Chain Bridge. Currently live on Ethereum, Polygon, and more. Building an interoperable cross chain future of the blockchain ecosystem." property="og:description" />
+    <meta content="Router Protocol | Communicate between blockchain networks" property="twitter:title" />
+    <meta content="Router Protocol is a Cross Chain Bridge. Currently live on Ethereum, Polygon, and more. Building an interoperable cross chain future of the blockchain ecosystem." property="twitter:description" />
+    <meta property="og:type" content="website" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/css/router-protocol.webflow.39fd2fc7b.css" rel="stylesheet" type="text/css" />
+    <style>
+        @media (min-width:992px) {
+            html.w-mod-js:not(.w-mod-ix) [data-w-id="be10c937-d850-2aeb-9924-35b0431d5ad6"] {
+                background-color: rgba(0, 0, 0, 0);
+                -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                transform-style: preserve-3d;
+                border-color: rgb(255, 80, 90);
+            }
+            html.w-mod-js:not(.w-mod-ix) [data-w-id="be10c937-d850-2aeb-9924-35b0431d5ad61"] {
+                background-color: rgba(0, 0, 0, 0);
+                -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                transform-style: preserve-3d;
+                border-color: rgb(255, 80, 90);
+            }
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        WebFont.load({
+            google: {
+                families: ["Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic:devanagari,latin,latin-ext", "Inter:100,200,300,regular,500,600,700,800,900:latin,latin-ext"]
+            }
+        });
+    </script>
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+    <script type="text/javascript">
+        ! function(o, c) {
+            var n = c.documentElement,
+                t = " w-mod-";
+            n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+        }(window, document);
+    </script>
+    <link href="https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/61dad07f191c4735b1367945_favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/61dad1479d2b620cb94d5144_webclip.png" rel="apple-touch-icon" />
+
+    <style>
+        .body {
+            overflow-x: hidden;
+        }
+        
+         ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        
+         ::-webkit-scrollbar-button {
+            width: 0px;
+            height: 0px;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            background: #e74159;
+            border: 0px none #ffffff;
+            border-radius: 100px;
+        }
+        
+         ::-webkit-scrollbar-thumb:hover {
+            background: #e74159;
+        }
+        
+         ::-webkit-scrollbar-thumb:active {
+            background: #e74159;
+        }
+        
+         ::-webkit-scrollbar-track {
+            background: #666666;
+            border: 0px solid #ffffff;
+            border-radius: 100px;
+        }
+        
+         ::-webkit-scrollbar-track:hover {
+            background: #666666;
+        }
+        
+         ::-webkit-scrollbar-track:active {
+            background: #333333;
+        }
+        
+         ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+        /*
+    :root {
+        --font-size--1: 0.8125rem;
+        --font-size-0: 1rem;
+        --font-size-1: calc(1.04163rem + 0.38833vw);
+        --font-size-2: calc(1.09712rem + 0.90667vw);
+        --font-size-3: calc(1.17113rem + 1.5975vw);
+        --font-size-4: calc(1.26963rem + 2.51667vw);
+        --font-size-5: calc(1.40113rem + 3.74417vw);
+        --font-size-6: calc(1.57625rem + 5.37833vw);
+        --font-size-7: calc(1.80975rem + 7.5575vw);
+    }
+    
+    .box-title {
+        font-size: var(--font-size-1);
+    }
+    
+    .paragraph-box {
+        font-size: var(--font-size--1);
+    }
+    */
+        
+        .jus_between {
+            justify-content: space-between;
+        }
+        
+        .jus_between::before {
+            display: none;
+        }
+        
+        .jus_between::after {
+            display: none;
+        }
+        
+        .language--wrap {
+            align-items: center;
+            box-shadow: inset 0px 0px 20px 2px rgba(255, 255, 255, 0.1);
+            padding: 0.3em 1.2em 0.3em 0.6em;
+            display: flex;
+            align-items: center;
+            border-radius: 20px;
+            width: 210px;
+            margin-left: 50px;
+            position: relative;
+            margin-top: 2px;
+        }
+        
+        .language--wrap svg {
+            width: 90px;
+            margin-right: 8px;
+            height: auto;
+        }
+        
+        .language--wrap svg path {
+            fill: white;
+        }
+        
+        .flex-w {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            top: 1px;
+        }
+        
+        .flex-w span {
+            margin-bottom: 1px;
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 14px;
+            color: white;
+            text-align: center;
+        }
+        
+        .flex-w p {
+            text-align: center;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+        
+        .token_btns {
+            display: flex;
+            align-items: center;
+            column-gap: 15px;
+        }
+        
+        .w2 {
+            transition: 0.5s;
+        }
+        
+        .w2:hover {
+            opacity: 0.6;
+            transition: 0.5s;
+        }
+        
+        .container {
+            border-bottom: 0;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .footer {
+            display: flex;
+        }
+        
+        @media screen and (max-width: 479px) {
+            .section-4 {
+                position: absolute;
+                left: 0%;
+                top: 0%;
+                right: 0%;
+                bottom: 0%;
+                display: block;
+                overflow: hidden;
+                height: 833vh;
+            }
+            .heading {
+                text-align: center;
+            }
+            .collection-list-wrapper-6 {
+                padding-right: 0;
+            }
+            .paragraph-box {
+                text-align: center;
+            }
+            .box-title {
+                width: 100%;
+                max-width: 100%;
+                text-align: center;
+            }
+            .box-icon-features {
+                margin: 0 auto;
+                text-align: center;
+            }
+            .icon---get-involved {
+                text-align: center;
+                margin: 0 auto;
+            }
+            .div-block-13 {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="body-2">
+
+    <div class="div-block-15">
+        <div class="hero-section wf-section">
+            <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+                <div class="container w-container jus_between">
+                    <a href="#" class="brand w-nav-brand"><img src="https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/61d1393ea537fcd9ae06bfea_Logo.png" loading="lazy" height="80" alt="" class="image" /></a>
+                    <div class="language--wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="800" width="1200" id="svg318" version="1.1" viewBox="-57.6 -53.49525 499.2 320.9715"><defs id="defs312"><style id="style310"></style></defs><g transform="translate(-64 -64.45)" id="g316"><path id="path314" d="M220.9 128.45l-14.45 14.46L192 128.45 206.45 114zM256 93.36l24.77 24.77 14.46-14.45L256 64.45l-39.23 39.23 14.46 14.45zM305.55 114l-14.45 14.45 14.45 14.46L320 128.45zM256 163.55l-24.77-24.77-14.46 14.45L256 192.45l39.23-39.22-14.46-14.45zm0-20.64l14.45-14.46L256 114l-14.45 14.45zM111.75 262.14V262c0-7.55-4-11.32-10.51-13.81 4-2.24 7.38-5.77 7.38-12.11v-.16c0-8.83-7.06-14.53-18.54-14.53H64v56.18h26.72c12.68-.02 21.03-5.16 21.03-15.43zm-15.41-24c0 4.18-3.45 5.94-8.91 5.94H76V232.2h12.2c5.21 0 8.1 2.09 8.1 5.78zm3.13 22.47c0 4.18-3.29 6.1-8.75 6.1H76v-12.36h14.32c6.34 0 9.15 2.33 9.15 6.1zm38.2 16.94v-56.18h-12.36v56.18zm66.43 0v-56.18h-12.2V256l-26.32-34.59h-11.4v56.18h12.2v-35.76l27.21 35.72zm68.46 0L248.48 221h-11.39L213 277.55h12.6l5.14-12.6h23.76l5.14 12.6zM250.09 254h-14.93l7.46-18.21zm81.38 23.52v-56.15h-12.2V256L293 221.37h-11.4v56.18h12.2v-35.72l27.2 35.72zm63.8-9.07l-7.86-8c-4.42 4-8.35 6.58-14.77 6.58-9.63 0-16.29-8-16.29-17.65v-.16c0-9.63 6.82-17.5 16.29-17.5 5.62 0 10 2.41 14.37 6.34l7.86-9.07c-5.22-5.13-11.56-8.66-22.15-8.66-17.25 0-29.29 13.08-29.29 29.05v.16c0 16.13 12.28 28.89 28.81 28.89 10.83.08 17.25-3.77 23.03-9.95zm52.73 9.1v-11h-30.5v-11.8H444v-11h-26.5v-11.38h30.1v-11h-42.37v56.18z" fill="#f0b90b"></path></g></svg>
+                        <div class="flex-w">
+                            <span> Листинг</span>
+                            <p> <b> 28 Августа</b>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-div">
+                <div class="stroke-left" data-w-id="086956df-6676-fb01-fb76-fba4e10468a0" data-animation-type="lottie" data-src="https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/61d176123330f7c09a50153d_Line%20PNG%202.json" data-loop="0" data-direction="1"
+                    data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="5" data-duration="0"></div>
+                <div class="hero-content">
+                    <div data-w-id="5cff3002-b64c-a366-a232-f7395372cc0c" class="hero-text">
+                        <h3 class="sub-heading">WELCOME TO ROUTER PROTOCOL</h3>
+                        <h1 class="front-title">БУДУЩЕЕ<br/>КРОССЧЕЙН ТЕХНОЛОГИИ</h1>
+                        <p class="title-sub-text">Инфраструктурный пласт, обеспечивающий коммуникацию между блокчейнами</p>
+                        <div class="countdown">
+                            <h3 class="sub-heading-copy">Mainnet Launching in</h3>
+                            <div id="js-clock" class="js-clock">
+                                <div class="box">
+                                    <div id="js-clock-days" class="clock-number">00</div>
+                                    <div class="clock-label">Days</div>
+                                </div>
+                                <div class="box">
+                                    <div id="js-clock-hours" class="clock-number">00</div>
+                                    <div class="clock-label">Hrs</div>
+                                </div>
+                                <div class="box">
+                                    <div id="js-clock-minutes" class="clock-number">00</div>
+                                    <div class="clock-label">Min</div>
+                                </div>
+                                <div class="box">
+                                    <div id="js-clock-seconds" class="clock-number-copy">00</div>
+                                    <div class="clock-label">Sec</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="token_btns">
+                        <a rel="noopener noreferrer" data-w-id="be10c937-d850-2aeb-9924-35b0431d5ad6" href="https://pancakeswap.finance/swap?outputCurrency=0x302c053196b98CEcAd5Bd0f9B974D492b77dEbA9" target="_blank" class="button w-button">Купить токен →</a>
+                        <a rel="noopener noreferrer" data-w-id="be10c937-d850-2aeb-9924-35b0431d5ad61" href="https://tradingchart.bar/BRP" target="_blank" class="button w-button w2">График</a>
+                    </div>
+
+                    <div class="alpha-release">Alpha Release</div>
+                </div>
+                <div class="stroke-right" data-w-id="33564f8d-dd6a-f557-d604-88ed981fc779" data-animation-type="lottie" data-src="https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/61d176123330f7c09a50153d_Line%20PNG%202.json" data-loop="0" data-direction="1"
+                    data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="5" data-duration="0"></div>
+            </div>
+            <div class="circle-blur-red"></div>
+            <div class="circle-blur-orange"></div>
+        </div>
+        <div class="features wf-section">
+            <div class="head-block">
+                <h3 class="sub-heading"></h3>
+                <h2 class="heading">Кроссчейн протокол, который позволяет:</h2>
+            </div>
+            <div class="collection-list-wrapper-6 w-dyn-list">
+                <div role="list" class="collection-list-5 w-dyn-items w-row">
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="features-item w-dyn-item w-col w-col-4">
+                        <div class="box-icon-features"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8964ffece61a75b279a8_fund-transfer.webp" loading="lazy" alt="Fund Transfers" sizes="(max-width: 479px) 31vw, (max-width: 767px) 35vw, 9vw" srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8964ffece61a75b279a8_fund-transfer-p-500.webp 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8964ffece61a75b279a8_fund-transfer-p-800.webp 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8964ffece61a75b279a8_fund-transfer.webp 1080w"
+                                class="icon-features" /></div>
+                        <div class="box-content">
+                            <h4 class="box-title">Трансфер средств</h4>
+                            <p class="paragraph-box">Переводите активы из одного блокчейна в другой. Пользователи могут беспрепятственно отправлять свои DAI из Polygon в Phantom.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="features-item w-dyn-item w-col w-col-4">
+                        <div class="box-icon-features"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df896dee9e893855270ba2_swap.webp" loading="lazy" alt="Asset Swaps" sizes="(max-width: 479px) 31vw, (max-width: 767px) 35vw, 9vw" srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df896dee9e893855270ba2_swap-p-500.webp 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df896dee9e893855270ba2_swap-p-800.webp 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df896dee9e893855270ba2_swap.webp 1080w"
+                                class="icon-features" /></div>
+                        <div class="box-content">
+                            <h4 class="box-title">Своп активов
+
+
+                            </h4>
+                            <p class="paragraph-box">Возможность свопа актива A в блокчейне X на актив B в блокчейне Y. Например, пользователи могут обменять свои USDT на базе Ethereum на DAI на базе Polygon с помощью Voyager.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="features-item w-dyn-item w-col w-col-4">
+                        <div class="box-icon-features"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8972ffece6e6fcb2894b_crosschain.webp" loading="lazy" alt="Cross-chain Applications" sizes="(max-width: 479px) 31vw, (max-width: 767px) 35vw, 9vw" srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8972ffece6e6fcb2894b_crosschain-p-500.webp 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8972ffece6e6fcb2894b_crosschain-p-800.webp 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8972ffece6e6fcb2894b_crosschain.webp 1080w"
+                                class="icon-features" /></div>
+                        <div class="box-content">
+                            <h4 class="box-title">Кроссчейн приложения</h4>
+                            <p class="paragraph-box">Создавайте приложения, которые смогут обеспечить кроссчейн кредитование, управление и многое другое в блокчейнах формата EVM и non-EVM.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="services wf-section">
+            <div class="circle-blur-red-service-copy"></div>
+            <div class="head-block">
+                <h3 class="sub-heading"></h3>
+                <h2 class="heading">Наши предложения</h2>
+            </div>
+            <div class="service-wrapper w-dyn-list">
+                <div role="list" class="service-collection w-dyn-items w-row">
+                    <div role="listitem" class="collection-item-5 w-dyn-item w-col w-col-4">
+                        <div class="box-icon"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df897b98bd8594f1e23b1f_swap-route.webp" alt="Optimal Price for Token Swaps" sizes="(max-width: 479px) 25vw, (max-width: 767px) 35vw, 9vw" srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df897b98bd8594f1e23b1f_swap-route-p-500.webp 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df897b98bd8594f1e23b1f_swap-route-p-800.webp 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df897b98bd8594f1e23b1f_swap-route.webp 1080w"
+                                class="icon" /></div>
+                        <div class="box-content">
+                            <h4 class="box-title">Оптимальная цена на токен своп.
+                            </h4>
+                            <p class="paragraph-box">Мы используем запатентованный алгоритм pathfinder для поиска оптимального маршрута для кроссчейн свопов.</p>
+                        </div>
+                    </div>
+                    <div role="listitem" class="collection-item-5 w-dyn-item w-col w-col-4">
+                        <div class="box-icon"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8983d85a2809921a34f3_gas-fees.webp" alt="Unified Gas Fees" sizes="(max-width: 479px) 25vw, (max-width: 767px) 35vw, 9vw" srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8983d85a2809921a34f3_gas-fees-p-500.webp 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8983d85a2809921a34f3_gas-fees-p-800.webp 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8983d85a2809921a34f3_gas-fees.webp 1080w"
+                                class="icon" /></div>
+                        <div class="box-content">
+                            <h4 class="box-title">Единый тариф на газ</h4>
+                            <p class="paragraph-box">Используйте $ROUTE в качестве единого газ-токена для всех трансферов/свопов в системе Route Protocol.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div role="listitem" class="collection-item-5 w-dyn-item w-col w-col-4">
+                        <div class="box-icon"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df898ad56144134d34299a_gassless.webp" alt="Cross-chain Settlement Engine" sizes="(max-width: 479px) 25vw, (max-width: 767px) 35vw, 9vw" srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df898ad56144134d34299a_gassless-p-500.webp 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df898ad56144134d34299a_gassless-p-800.webp 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df898ad56144134d34299a_gassless.webp 1080w"
+                                class="icon" /></div>
+                        <div class="box-content">
+                            <h4 class="box-title">Кроссчейн механизм урегулирования</h4>
+                            <p class="paragraph-box">Благодаря автоматизированному расчету всех транзакций, Router Protocol гарантирует, что средства пользователей никогда не будут заблокированы.
+                            </p>
+                        </div>
+                    </div>
+                    <div role="listitem" class="collection-item-5 w-dyn-item w-col w-col-4">
+                        <div class="box-icon"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89934988eb40e0273d19_router-blockchain.webp" alt="Periphery Contracts" sizes="(max-width: 479px) 25vw, (max-width: 767px) 35vw, 9vw" srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89934988eb40e0273d19_router-blockchain-p-500.webp 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89934988eb40e0273d19_router-blockchain-p-800.webp 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89934988eb40e0273d19_router-blockchain.webp 1080w"
+                                class="icon" /></div>
+                        <div class="box-content">
+                            <h4 class="box-title">Переферийные контракты</h4>
+                            <p class="paragraph-box">Периферийные контракты в Router обеспечивают легкий доступ к механизму кроссчейн коммуникации.
+                            </p>
+                        </div>
+                    </div>
+                    <div role="listitem" class="collection-item-5 w-dyn-item w-col w-col-4">
+                        <div class="box-icon"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8999d01dff844cb83f31_multi-chain.webp" alt="Multi-chain Token Standard" sizes="(max-width: 479px) 25vw, (max-width: 767px) 35vw, 9vw" srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8999d01dff844cb83f31_multi-chain-p-500.webp 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8999d01dff844cb83f31_multi-chain-p-800.webp 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df8999d01dff844cb83f31_multi-chain.webp 1080w"
+                                class="icon" /></div>
+                        <div class="box-content">
+                            <h4 class="box-title">Мультичейн токен стандарт</h4>
+                            <p class="paragraph-box">Запускайте и управляйте мультичейн токенами с помощью встроенного стандарта подотчетности.
+                            </p>
+                        </div>
+                    </div>
+                    <div role="listitem" class="collection-item-5 w-dyn-item w-col w-col-4">
+                        <div class="box-icon"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df899ea56d58249eb70ed4_cross-chain-settlement.webp" alt="Application-specific Blockchain" sizes="(max-width: 479px) 25vw, (max-width: 767px) 35vw, 9vw" srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df899ea56d58249eb70ed4_cross-chain-settlement-p-500.webp 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df899ea56d58249eb70ed4_cross-chain-settlement-p-800.webp 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df899ea56d58249eb70ed4_cross-chain-settlement.webp 1080w"
+                                class="icon" /></div>
+                        <div class="box-content">
+                            <h4 class="box-title">Специализированный блокчейн для конкретного приложения</h4>
+                            <p class="paragraph-box">Router блокчейн будет функционировать как глобальный мультичейн уровня системы учета.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="developers wf-section">
+            <div class="dev-main">
+                <div class="head-block">
+                    <h3 class="sub-heading"></h3>
+                    <h2 class="heading">Технология Plug & play для разработчиков</h2>
+                </div>
+                <div class="dev-content w-dyn-list">
+                    <div role="list" class="collection-list-5 w-dyn-items w-row">
+                        <div role="listitem" class="dev-item w-dyn-item w-col w-col-6">
+                            <div class="box-content">
+                                <div class="box-start">+</div>
+                                <h4 class="box-title">Router JS SDK</h4>
+                                <p class="paragraph-box">Компонуемый Javascript SDK для поддержки кроссчейн свопов.
+                                </p>
+                            </div>
+                        </div>
+                        <div role="listitem" class="dev-item w-dyn-item w-col w-col-6">
+                            <div class="box-content">
+                                <div class="box-start">+</div>
+                                <h4 class="box-title">Router виджет</h4>
+                                <p class="paragraph-box">Готовый кроссчейн виджет, который можно встраивать во внешние DApps.
+                                </p>
+                            </div>
+                        </div>
+                        <div role="listitem" class="dev-item w-dyn-item w-col w-col-6">
+                            <div class="box-content">
+                                <div class="box-start">+</div>
+                                <h4 class="box-title">Router PathFinder API</h4>
+                                <p class="paragraph-box">Кроссчейн API своп, позволяющий децентрализованным приложениям использовать все возможности Router кроссчейна.
+                                </p>
+                            </div>
+                        </div>
+                        <div role="listitem" class="dev-item w-dyn-item w-col w-col-6">
+                            <div class="box-content">
+                                <div class="box-start">+</div>
+                                <h4 class="box-title">SDK для разработчиков</h4>
+                                <p class="paragraph-box">Использование Router s Cross Talk SDK для создания комплексных децентрализованных приложений в кроссчейн среде.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dev-icon"><img src="https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/61d295953c449e68e6681e71_Icons.png" loading="lazy" srcset="https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/61d295953c449e68e6681e71_Icons-p-500.png 500w, https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/61d295953c449e68e6681e71_Icons-p-800.png 800w, https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/61d295953c449e68e6681e71_Icons.png 1080w"
+                    sizes="100vw" alt="" class="image-3" /></div>
+            <div class="circle-blur-red-dev-copy"></div>
+            <div class="circle-blur-orange-dev-copy"></div>
+        </div>
+        <div class="get-involved wf-section">
+            <div class="head-block">
+                <h3 class="sub-heading"></h3>
+                <h2 class="heading">Становитесь частью кроссчейн будущего</h2>
+            </div>
+            <div class="collection-list-wrapper-3 w-dyn-list">
+                <div role="list" class="collection-list-3 w-dyn-items w-row">
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-3 w-dyn-item w-col w-col-4">
+                        <a rel="noopener noreferrer" href="https://github.com/router-protocol" target="_blank" class="link-block w-inline-block">
+                            <div class="icon---get-involved"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89b13120077f1edbbbe0_build.webp" loading="lazy" width="162" alt="Let&#x27;s Build Together" sizes="(max-width: 479px) 50vw, (max-width: 767px) 23vw, (max-width: 991px) 18vw, 160px"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89b13120077f1edbbbe0_build-p-500.webp 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89b13120077f1edbbbe0_build-p-800.webp 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89b13120077f1edbbbe0_build.webp 1080w"
+                                    class="image-4" /></div>
+                            <div>
+                                <h4 class="box-title">Совместная разработка</h4>
+                                <p class="paragraph-box">Приглашаем разработчиков для оптимизации наших уже существующих протоколов.
+                                </p>
+                            </div>
+
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-3 w-dyn-item w-col w-col-4">
+                        <a rel="noopener noreferrer" href="mailto:contact@routerprotocol.com" target="_blank" class="link-block w-inline-block">
+                            <div class="icon---get-involved"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89b7c0dc671f0f7af5b1_partner.webp" loading="lazy" width="162" alt="Partnership Proposals" sizes="(max-width: 479px) 50vw, (max-width: 767px) 23vw, (max-width: 991px) 18vw, 160px"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89b7c0dc671f0f7af5b1_partner-p-500.webp 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89b7c0dc671f0f7af5b1_partner-p-800.webp 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89b7c0dc671f0f7af5b1_partner.webp 1080w"
+                                    class="image-4" /></div>
+                            <div>
+                                <h4 class="box-title">Партнерская программа</h4>
+                                <p class="paragraph-box">Мы всегда рады индивидуальным предпринимателям или компаниям, которые готовы предложить нам варианты коллаборации.</p>
+                            </div>
+
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-3 w-dyn-item w-col w-col-4">
+                        <a rel="noopener noreferrer" href="https://immunefi.com/bounty/router/" target="_blank" class="link-block w-inline-block">
+                            <div class="icon---get-involved"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89befa2f61701b838900_bounty.webp" loading="lazy" width="162" alt="Bug Bounty Program" sizes="(max-width: 479px) 50vw, (max-width: 767px) 23vw, (max-width: 991px) 18vw, 160px"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89befa2f61701b838900_bounty-p-500.webp 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89befa2f61701b838900_bounty-p-800.webp 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/62df89befa2f61701b838900_bounty.webp 1080w"
+                                    class="image-4" /></div>
+                            <div>
+                                <h4 class="box-title">Программа Big Bounty</h4>
+                                <p class="paragraph-box">Мы поддерживаем этичных хакеров, чтобы выявить потенциальные векторы атаки на наш исходный код.
+                                </p>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="roadmap wf-section">
+            <div class="circle-blur-red-road-copy"></div>
+            <div class="head-block">
+                <h3 class="sub-heading"></h3>
+                <h2 class="heading">Дорожная карта</h2>
+            </div><img src="https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/62df8a126fa654342b7a5c0c_roadmap-desktop.webp" loading="lazy" srcset="https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/62df8a126fa654342b7a5c0c_roadmap-desktop-p-500.webp 500w, https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/62df8a126fa654342b7a5c0c_roadmap-desktop-p-800.webp 800w, https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/62df8a126fa654342b7a5c0c_roadmap-desktop-p-1080.webp 1080w, https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/62df8a126fa654342b7a5c0c_roadmap-desktop.webp 1920w"
+                sizes="(max-width: 479px) 100vw, 70vw" alt="" class="roadmap-desktop" /><img src="https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/62df8a5c7af237f910d71eae_roadmap-mobile.webp" loading="lazy" srcset="https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/62df8a5c7af237f910d71eae_roadmap-mobile-p-500.webp 500w, https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/62df8a5c7af237f910d71eae_roadmap-mobile-p-800.webp 800w"
+                sizes="(max-width: 479px) 87vw, 100vw" alt="" class="roadmap-mobile" /></div>
+        <div class="chains-integrated wf-section">
+            <div class="circle-blur-red-chain-copy"></div>
+            <div class="head-block">
+                <h3 class="sub-heading"></h3>
+                <h2 class="heading">Мы на пути к интеграции каждого блокчейна</h2>
+            </div>
+            <div class="collection-list-wrapper-4 w-dyn-list">
+                <div role="list" class="collection-list w-dyn-items w-row">
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://ethereum.org/en/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d40ffe51c3a281c7478f67_ethereum-logo-landscape-purple.png" loading="lazy" alt="Ethereum" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d40ffe51c3a281c7478f67_ethereum-logo-landscape-purple-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d40ffe51c3a281c7478f67_ethereum-logo-landscape-purple-p-800.png 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d40ffe51c3a281c7478f67_ethereum-logo-landscape-purple-p-1080.png 1080w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d40ffe51c3a281c7478f67_ethereum-logo-landscape-purple-p-1600.png 1600w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d40ffe51c3a281c7478f67_ethereum-logo-landscape-purple.png 1920w"
+                                    class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://polygon.technology/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61dc3d448e7c855c047ad19d_polygon-logo.svg" loading="lazy" alt="Polygon" class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://fantom.foundation/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410277285414d10e8e6a1_fantom%20logo%20blue.png" loading="lazy" alt="Fantom" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410277285414d10e8e6a1_fantom%20logo%20blue-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410277285414d10e8e6a1_fantom%20logo%20blue-p-800.png 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410277285414d10e8e6a1_fantom%20logo%20blue-p-1080.png 1080w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410277285414d10e8e6a1_fantom%20logo%20blue.png 2055w"
+                                    class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://elrond.com/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e046315e8acad963acc786_The%20Internet%20Scale%20Blockchain%20%C2%B7%20Elrond%20eGold%20(EGLD)-4.svg" loading="lazy" alt="Elrond" class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://near.org/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e0468f5e8aca573aaccbe7_near_logo_wht.svg" loading="lazy" alt="Near" class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://polkadot.network/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e046db03be608baedf7dd6_Polkadot_Logo_Horizontal_Pink-White.svg" loading="lazy" alt="Polkadot" class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://cosmos.network/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e0472d2540f2560a5ed3bd_Cosmos_%20The%20Internet%20of%20Blockchains-0.svg" loading="lazy" alt="Cosmos" class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://www.algorand.com/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e044bdef9bfd4f1c98cf5b_Media%20Kit%20_%20Algorand-0.svg" loading="lazy" alt="Algorand" class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://www.terra.money/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e044ef5e8aca2d34acc2cd_terra.png" loading="lazy" alt="Terra" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw" srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e044ef5e8aca2d34acc2cd_terra-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e044ef5e8aca2d34acc2cd_terra-p-800.png 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e044ef5e8aca2d34acc2cd_terra-p-1080.png 1080w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e044ef5e8aca2d34acc2cd_terra.png 1400w"
+                                    class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://www.optimism.io/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d41133acd754d989647e8a_OPTIMISM.png" loading="lazy" alt="Optimism" class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://solana.com/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e045411092b15e6a81e7ea_solana.svg" loading="lazy" alt="Solana" class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://arbitrum.io/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d411195f710a7f939a704f_arbitrum.png" loading="lazy" alt="Arbitrum" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d411195f710a7f939a704f_arbitrum-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d411195f710a7f939a704f_arbitrum-p-800.png 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d411195f710a7f939a704f_arbitrum-p-1080.png 1080w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d411195f710a7f939a704f_arbitrum-p-1600.png 1600w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d411195f710a7f939a704f_arbitrum-p-2000.png 2000w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d411195f710a7f939a704f_arbitrum.png 2280w"
+                                    class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://www.binance.org/en/smartChain" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d41038ed779458d23e3d97_binance.png" loading="lazy" alt="Binance" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d41038ed779458d23e3d97_binance-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d41038ed779458d23e3d97_binance.png 512w"
+                                    class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://www.avax.network/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red.png" loading="lazy" alt="Avalanche" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red-p-800.png 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red-p-1080.png 1080w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red-p-1600.png 1600w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red-p-2000.png 2000w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red.png 3194w"
+                                    class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://moonbeam.network/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d4107eed779479673e3de6_Moonbeam-Logo-Final-500px.png" loading="lazy" alt="Moonbeam" class="image-8" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://www.harmony.one/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d4105d24766345b81df02c_harmony.png" loading="lazy" alt="Harmony" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d4105d24766345b81df02c_harmony-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d4105d24766345b81df02c_harmony-p-800.png 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d4105d24766345b81df02c_harmony.png 1036w"
+                                    class="image-8" /></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="investor wf-section">
+            <div class="head-block">
+                <h2 class="heading">Создано лучшими</h2>
+            </div>
+            <div class="collection-list-wrapper-4 w-dyn-list">
+                <div role="list" class="collection-list w-dyn-items w-row">
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="#" class="link-block-2 w-inline-block">
+                            <div class="block-chain-copy"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d4198ae4df5fe813ab6b57_coinbase.png" loading="lazy" width="123" alt="Coinbase Ventures" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d4198ae4df5fe813ab6b57_coinbase-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d4198ae4df5fe813ab6b57_coinbase.png 1160w"
+                                    class="image-10" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="#" class="link-block-2 w-inline-block">
+                            <div class="block-chain-copy"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52d30258c5a39bb87fb67_QCP-Logo-Horizontal.png" loading="lazy" width="123" alt="QCP" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52d30258c5a39bb87fb67_QCP-Logo-Horizontal-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52d30258c5a39bb87fb67_QCP-Logo-Horizontal.png 600w"
+                                    class="image-10" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="#" class="link-block-2 w-inline-block">
+                            <div class="block-chain-copy"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e3cebaee348eea312f0b6f_image.png" loading="lazy" width="123" alt="De-Fi Capital" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e3cebaee348eea312f0b6f_image-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e3cebaee348eea312f0b6f_image.png 658w" class="image-10"
+                                /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="#" class="link-block-2 w-inline-block">
+                            <div class="block-chain-copy"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52cc9e027914fb599003c_alameda.png" loading="lazy" width="123" alt="Alameda Research" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52cc9e027914fb599003c_alameda-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52cc9e027914fb599003c_alameda-p-800.png 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52cc9e027914fb599003c_alameda-p-1080.png 1080w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52cc9e027914fb599003c_alameda-p-1600.png 1600w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52cc9e027914fb599003c_alameda-p-2000.png 2000w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52cc9e027914fb599003c_alameda.png 2500w"
+                                    class="image-10" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://www.wintermute.com/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain-copy"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52d4cd658a90b1219faa0_wintermute.png" loading="lazy" width="123" alt="Wintermute" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52d4cd658a90b1219faa0_wintermute-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52d4cd658a90b1219faa0_wintermute-p-800.png 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52d4cd658a90b1219faa0_wintermute-p-1080.png 1080w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52d4cd658a90b1219faa0_wintermute-p-1600.png 1600w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52d4cd658a90b1219faa0_wintermute-p-2000.png 2000w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52d4cd658a90b1219faa0_wintermute-p-2600.png 2600w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52d4cd658a90b1219faa0_wintermute-p-3200.png 3200w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52d4cd658a90b1219faa0_wintermute.png 5089w"
+                                    class="image-10" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="#" class="link-block-2 w-inline-block">
+                            <div class="block-chain-copy"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d419dfe4df5fb619ab6bb8_polygon-logo.png" loading="lazy" width="123" alt="Polygon" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d419dfe4df5fb619ab6bb8_polygon-logo-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d419dfe4df5fb619ab6bb8_polygon-logo-p-800.png 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d419dfe4df5fb619ab6bb8_polygon-logo-p-1080.png 1080w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d419dfe4df5fb619ab6bb8_polygon-logo-p-1600.png 1600w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d419dfe4df5fb619ab6bb8_polygon-logo-p-2000.png 2000w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d419dfe4df5fb619ab6bb8_polygon-logo-p-2600.png 2600w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d419dfe4df5fb619ab6bb8_polygon-logo-p-3200.png 3200w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d419dfe4df5fb619ab6bb8_polygon-logo.png 4267w"
+                                    class="image-10" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://woodstockfund.com/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain-copy"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d52d21e615ca4ab4744cfd_woodstock-logo.png" loading="lazy" width="123" alt="Woodstock" class="image-10" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://shima.capital/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain-copy"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e0485af7a735fb24403a28_shima.svg" loading="lazy" width="123" alt="Shima Capital" class="image-10" /></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="circle-blur-red-partner-copy"></div>
+        </div>
+        <div class="tech-partner wf-section">
+            <div class="head-block">
+                <h2 class="heading">Tech partners</h2>
+            </div>
+            <div class="collection-list-wrapper-4 w-dyn-list">
+                <div role="list" class="collection-list w-dyn-items w-row">
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://www.algorand.com/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e044bdef9bfd4f1c98cf5b_Media%20Kit%20_%20Algorand-0.svg" loading="lazy" alt="" class="image-9" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://www.terra.money/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e044ef5e8aca2d34acc2cd_terra.png" loading="lazy" alt="" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw" srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e044ef5e8aca2d34acc2cd_terra-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e044ef5e8aca2d34acc2cd_terra-p-800.png 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e044ef5e8aca2d34acc2cd_terra-p-1080.png 1080w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61e044ef5e8aca2d34acc2cd_terra.png 1400w"
+                                    class="image-9" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://www.certik.com/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61dea9a84a0e832434fc9119_certik-logo.png" loading="lazy" alt="" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw" srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61dea9a84a0e832434fc9119_certik-logo-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61dea9a84a0e832434fc9119_certik-logo.png 1430w"
+                                    class="image-9" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://halborn.com/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61dad57721ab08c6484a4a5b_halborn_logo_transparent.png" loading="lazy" alt="" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61dad57721ab08c6484a4a5b_halborn_logo_transparent-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61dad57721ab08c6484a4a5b_halborn_logo_transparent-p-800.png 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61dad57721ab08c6484a4a5b_halborn_logo_transparent-p-1080.png 1080w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61dad57721ab08c6484a4a5b_halborn_logo_transparent.png 1500w"
+                                    class="image-9" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://hacken.io/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61dc3dc58ae36472c02cb91e_Hacken%20CyberSecurity%20Services%20-%20Hacken-1.svg" loading="lazy" alt="" class="image-9" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://fantom.foundation/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410277285414d10e8e6a1_fantom%20logo%20blue.png" loading="lazy" alt="" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410277285414d10e8e6a1_fantom%20logo%20blue-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410277285414d10e8e6a1_fantom%20logo%20blue-p-800.png 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410277285414d10e8e6a1_fantom%20logo%20blue-p-1080.png 1080w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410277285414d10e8e6a1_fantom%20logo%20blue.png 2055w"
+                                    class="image-9" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://www.avax.network/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red.png" loading="lazy" alt="" sizes="(max-width: 479px) 27vw, (max-width: 767px) 47vw, (max-width: 991px) 11vw, 12vw"
+                                    srcset="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red-p-500.png 500w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red-p-800.png 800w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red-p-1080.png 1080w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red-p-1600.png 1600w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red-p-2000.png 2000w, https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61d410480f7ea3f965d5a0b3_Avalanche_Horizontal_Red.png 3194w"
+                                    class="image-9" /></div>
+                        </a>
+                    </div>
+                    <div style="-webkit-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 50px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                        role="listitem" class="collection-item-4 w-dyn-item w-col w-col-3">
+                        <a rel="noopener noreferrer" href="https://polygon.technology/" target="_blank" class="link-block-2 w-inline-block">
+                            <div class="block-chain"><img src="https://global-uploads.webflow.com/61d40c0a882ea04468866bcf/61dc3d448e7c855c047ad19d_polygon-logo.svg" loading="lazy" alt="" class="image-9" /></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-wrapper wf-section">
+            <div class="wrap">
+
+                <div class="w-layout-grid footer">
+                    <div id="w-node-ec9f0904-972a-df4c-e355-dc1d6bd65f50-6bd65f4d"><strong class="company-text text-center">Router protocol</strong></div>
+                    <p id="w-node-ec9f0904-972a-df4c-e355-dc1d6bd65f53-6bd65f4d" class="small-paragraph text-center" ">A modular infrastructure layer enabling blockchains to communicate with each other.</p>
+                    <p id="w-node-ec9f0904-972a-df4c-e355-dc1d6bd65f55-6bd65f4d " class="small-paragraph cc-copyright-footer text-center "">Router Protocol © 2022</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-4 wf-section">
+        <div class="circle-blur-red-news"></div>
+        <div class="circle-blur-red-road"></div>
+        <div class="circle-blur-red-dev"></div>
+        <div class="circle-blur-red-partner"></div>
+        <div class="circle-blur-red-chain"></div>
+        <div class="circle-blur-red-involved"></div>
+        <div class="circle-blur-red-service"></div>
+        <div class="circle-blur-orange-dev"></div>
+    </div>
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=61d1382fe0e915f2953f9500" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://global-uploads.webflow.com/61d1382fe0e915f2953f9500/js/webflow.b9bd560fe.js" type="text/javascript"></script>
+    <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+    <script>
+        (function() {
+            var deadline = 1643295600000;
+
+            function pad(num, size) {
+                var s = "0" + num;
+                return s.substr(s.length - size);
+            }
+            // fixes "Date.parse(date)" on safari
+            // function parseDate(date) {
+            //     const parsed = Date.parse(date);
+            //     if (!isNaN(parsed)) return parsed
+            //     return Date.parse(date.replace(/-/g, '/').replace(/[a-z]+/gi, ' '));
+            // }
+            function getTimeRemaining(endtime) {
+                let total = endtime - Date.parse(new Date())
+                let seconds = Math.floor((total / 1000) % 60)
+                let minutes = Math.floor((total / 1000 / 60) % 60)
+                let hours = Math.floor((total / (1000 * 60 * 60)) % 24)
+                let days = Math.floor(total / (1000 * 60 * 60 * 24))
+                return {
+                    total,
+                    days,
+                    hours,
+                    minutes,
+                    seconds
+                };
+            }
+
+            function clock(id, endtime) {
+                let days = document.getElementById(id + '-days')
+                let hours = document.getElementById(id + '-hours')
+                let minutes = document.getElementById(id + '-minutes')
+                let seconds = document.getElementById(id + '-seconds')
+                var timeinterval = setInterval(function() {
+                    var time = getTimeRemaining(endtime);
+                    if (time.total <= 0) {
+                        clearInterval(timeinterval);
+                    } else {
+                        days.innerHTML = pad(time.days, 2);
+                        hours.innerHTML = pad(time.hours, 2);
+                        minutes.innerHTML = pad(time.minutes, 2);
+                        seconds.innerHTML = pad(time.seconds, 2);
+                    }
+                }, 1000);
+            }
+            clock('js-clock', deadline);
+        })();
+    </script>
+</body>
+
+</html>
